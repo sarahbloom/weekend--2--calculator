@@ -21,6 +21,7 @@ app.post('/equation', (req, res) => {
     res.sendStatus(200);
 })
 
+//APP.LISTEN
 app.listen(PORT, () => {
     console.log("server is running on port: ", PORT);
 })
