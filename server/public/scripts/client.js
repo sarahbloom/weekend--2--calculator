@@ -18,7 +18,7 @@ function getallEquations() {
         type: "GET", 
         url: "/equation"
     }).done(function(response){
-        console.log('done!');
+        console.log(response);
         // appendToDom(response); // response is the array
     })
 }

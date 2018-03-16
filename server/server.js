@@ -15,8 +15,9 @@ app.get('/equation', (req, res) => {
 
 //POST
 app.post('/equation', (req, res) => {
-    console.log(equationHistory);
+    // console.log(equationHistory);
     let numbersSubmitted = req.body;
+    calculateTotal(numbersSubmitted);
     equationHistory.push(numbersSubmitted);
     res.sendStatus(200);
 })
@@ -25,3 +26,17 @@ app.post('/equation', (req, res) => {
 app.listen(PORT, () => {
     console.log("server is running on port: ", PORT);
 })
+
+function calculateTotal(operation){
+    console.log(operation);
+    if (operation.type == "Add"){
+        let sum = parseInt(operation.firstDigit) + parseInt(operation.secondDigit)
+        operation.total = sum;
+        return sum;
+    } 
+    else if (operation.type == "Subtract") {
+        let difference = parseInt(operation.firstDigit) - parseInt(operation.secondDigit)
+        operation.total = difference;
+        return difference;
+    }
+}
