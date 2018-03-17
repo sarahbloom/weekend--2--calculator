@@ -106,5 +106,4 @@ function appendToDom(equationHistory){
 function resetInputs(){
     $('#firstNumber').val('');
     $('#secondNumber').val('');
-    // $('#history').empty();
 }
