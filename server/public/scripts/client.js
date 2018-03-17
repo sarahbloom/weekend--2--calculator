@@ -19,7 +19,7 @@ function getallEquations() {
         url: "/equation"
     }).done(function(response){
         console.log(response);
-        // appendToDom(response); // response is the array
+        appendToDom(response); // response is the array
     })
 }
 
@@ -28,7 +28,6 @@ function submitAddition(){
     let firstDigit = $('#firstNumber').val();
     let secondDigit = $('#secondNumber').val();
     let numbersSubmitted = { firstDigit: firstDigit, secondDigit: secondDigit, type: "Add" }
-    console.log(numbersSubmitted);
     $.ajax({
         type: "POST",
         data: numbersSubmitted,
@@ -43,7 +42,6 @@ function submitSubtraction(){
     let firstDigit = $('#firstNumber').val();
     let secondDigit = $('#secondNumber').val();
     let numbersSubmitted = { firstDigit: firstDigit, secondDigit: secondDigit, type: "Subtract" }
-    console.log(numbersSubmitted);
     $.ajax({
         type: "POST",
         data: numbersSubmitted,
@@ -58,7 +56,6 @@ function submitDivision(){
     let firstDigit = $('#firstNumber').val();
     let secondDigit = $('#secondNumber').val();
     let numbersSubmitted = { firstDigit: firstDigit, secondDigit: secondDigit, type: "Divide" }
-    console.log(numbersSubmitted);
     $.ajax({
         type: "POST",
         data: numbersSubmitted,
@@ -73,7 +70,6 @@ function submitMultiplication(){
     let firstDigit = $('#firstNumber').val();
     let secondDigit = $('#secondNumber').val();
     let numbersSubmitted = { firstDigit: firstDigit, secondDigit: secondDigit, type: "Multiply" }
-    console.log(numbersSubmitted);
     $.ajax({
         type: "POST",
         data: numbersSubmitted,
@@ -84,9 +80,11 @@ function submitMultiplication(){
     })
 }
 
-// function appendToDom(){
-//     $('#history').clear();
-//     for (let equation of equationHistory){
-//         console.log('Equation: ', equation);
-//     }
-// }
+function appendToDom(equationHistory){
+    $('#history').empty();
+    for (let equation of equationHistory){
+        if (equation.type == "Add"){
+            $('#history').append("<p>" + equation.firstDigit + ' + ' + equation.secondDigit + ' = ' + equation.total + "</p>");
+        }
+    }
+}

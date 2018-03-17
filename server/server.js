@@ -30,13 +30,23 @@ app.listen(PORT, () => {
 function calculateTotal(operation){
     console.log(operation);
     if (operation.type == "Add"){
-        let sum = parseInt(operation.firstDigit) + parseInt(operation.secondDigit)
+        let sum = parseInt(operation.firstDigit) + parseInt(operation.secondDigit);
         operation.total = sum;
-        return sum;
+        console.log(sum);
     } 
     else if (operation.type == "Subtract") {
-        let difference = parseInt(operation.firstDigit) - parseInt(operation.secondDigit)
+        let difference = parseInt(operation.firstDigit) - parseInt(operation.secondDigit);
         operation.total = difference;
-        return difference;
+        console.log(difference);
+    }
+    else if (operation.type == "Divide"){
+        let quotient = parseInt(operation.firstDigit) / parseInt(operation.secondDigit);
+        operation.total = quotient;
+        console.log(quotient);
+    }
+    else if (operation.type = "Multiply"){
+        let product = parseInt(operation.firstDigit) * parseInt(operation.secondDigit);
+        operation.total = product;
+        console.log(product);
     }
 }
