@@ -3,6 +3,7 @@ $(document).ready(readyNow);
 function readyNow() {
     console.log('jQuery loaded');
     clickListeners();
+    getallEquations();
 }
 
 function clickListeners(){
