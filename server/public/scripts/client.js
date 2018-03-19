@@ -85,22 +85,7 @@ function submitMultiplication(){
 function appendToDom(equationHistory){
     $('#history').empty();
     for (let equation of equationHistory){
-        if (equation.type == "Add"){
-            $('#history').append("<p>" + equation.firstDigit + ' + ' + 
-                                equation.secondDigit + ' = ' + equation.total + "</p>");
-        }
-        else if (equation.type == "Subtract") {
-            $('#history').append("<p>" + equation.firstDigit + ' - ' +
-                                   equation.secondDigit + ' = ' + equation.total + "</p>");
-        }
-        else if (equation.type == "Divide") {
-            $('#history').append("<p>" + equation.firstDigit + ' ÷ ' +
-                equation.secondDigit + ' = ' + equation.total + "</p>");
-        }
-        else if (equation.type == "Multiply") {
-            $('#history').append("<p>" + equation.firstDigit + ' × ' +
-                equation.secondDigit + ' = ' + equation.total + "</p>");
-        }
+        $("#history").append(equation + '</br>');
     }
 }
 
