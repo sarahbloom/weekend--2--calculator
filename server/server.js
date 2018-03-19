@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 const PORT = process.env.PORT || 5000;
 let bodyParser = require('body-parser');
-const equationHistory = []; //array
+let equationHistory = []; //array
 let outcome;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,6 +19,14 @@ app.post('/equation', (req, res) => {
     // console.log(equationHistory);
     let numbersSubmitted = req.body;
     calculateTotal(numbersSubmitted);
+    res.sendStatus(200);
+})
+
+app.post('/cleararray', (req, res) =>{
+    console.log('success');
+    console.log(equationHistory);
+    equationHistory = [];
+    console.log(equationHistory);
     res.sendStatus(200);
 })
 

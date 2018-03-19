@@ -93,4 +93,10 @@ function resetInputs(){
     $('#firstNumber').val('');
     $('#secondNumber').val('');
     $('#history').empty();
+    $.ajax({
+        type: "POST",
+        url: "/cleararray"
+    }).done(function (response) {
+        console.log('success!');
+    })
 }
